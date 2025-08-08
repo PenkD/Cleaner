@@ -9,7 +9,7 @@ FolderType = {
     (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".txt", ".rtf", ".odt", ".csv", ".log", ".json", ".xml", ".yml", ".yaml", ".md", ".html", ".htm", ".ahk", ".js", ".css", ".ts", ".java", ".py", ".c", ".cpp", ".h", ".sh"): "Documents",
     (".exe", ".msi", ".cmd", ".bat", ".apk", ".com" ): "EXE-files",
     (".jar",): "JAR-files",
-    (".zip", ".rar", ".gz", ".7z"): "Archives"
+    (".zip", ".rar", ".gz", ".7z", ".iso"): "Archives"
 }
 
 FolderNames = ["Music", "Videos", "EXE-files", "Documents", "Archives", "JAR-files"]
