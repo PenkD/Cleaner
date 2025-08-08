@@ -22,11 +22,13 @@ class Main(ctk.CTk):
         self.maxsize(width=300, height=300)
         self.minsize(width=300, height=300)
         self.pathText = ctk.CTkEntry(self, width=300, height=20)
+        self.pathText.insert("0", "Enter address here")
         self.pathText.place(x=0, y=50)
         self.console = ctk.CTkTextbox(self, width=300, height=100)
         self.console.place(x=0, y=100)
+        self.console.insert("0.0", "Output\n")
         self.console.configure(self, state="disabled")
-        button1 = ctk.CTkButton(self, text="Launch", command=self.launcherCleaner)
+        button1 = ctk.CTkButton(self, text="Clean Directory", command=self.launcherCleaner)
         button1.place(x=85, y=210)
 
     def launcherCleaner(self):
