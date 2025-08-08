@@ -2,15 +2,14 @@ import os
 import customtkinter as ctk
 import shutil
 
-
 FolderType = {
     (".jpg", ".png", ".gif", ".webp", ".jfif"): "Images",
-    (".mp3", ".wav", ".ogg", ".wav", ".wma", "3gp"): "Music",
+    (".mp3", ".wav", ".ogg", ".wav", ".wma", ".3gp"): "Music",
     (".mp4", ".mov", ".avi"): "Videos",
-    (".pdf", ".docx", ".txt", ".ahk", ".js", ".log", ".yml", ".json"): "Documents",
-    (".exe", ".msi"): "EXE-files",
+    (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".txt", ".rtf", ".odt", ".csv", ".log", ".json", ".xml", ".yml", ".yaml", ".md", ".html", ".htm", ".ahk", ".js", ".css", ".ts", ".java", ".py", ".c", ".cpp", ".h", ".sh"): "Documents",
+    (".exe", ".msi", ".cmd", ".bat", ".apk", ".com" ): "EXE-files",
     (".jar",): "JAR-files",
-    (".zip", ".rar", ".gz", ".7z"): "ZIP-files"
+    (".zip", ".rar", ".gz", ".7z"): "Archives"
 }
 
 FolderNames = ["Music", "Videos", "EXE-files", "Documents", "ZIP-files", "JAR-files"]
