@@ -12,7 +12,7 @@ FolderType = {
     (".zip", ".rar", ".gz", ".7z"): "Archives"
 }
 
-FolderNames = ["Music", "Videos", "EXE-files", "Documents", "ZIP-files", "JAR-files"]
+FolderNames = ["Music", "Videos", "EXE-files", "Documents", "Archives", "JAR-files"]
 
 class Main(ctk.CTk):
     def __init__(self):
