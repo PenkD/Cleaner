@@ -3,24 +3,30 @@ import customtkinter as ctk
 import shutil
 
 FolderType = {
-    (".jpg", ".png", ".gif", ".webp", ".jfif", ".jpeg"): "Images",
+    (".jpg", ".png", ".gif", ".webp", ".jfif"): "Images",
     (".mp3", ".wav", ".ogg", ".wav", ".wma", ".3gp"): "Music",
-    (".mp4", ".mov", ".avi", ".mkv"): "Videos",
+    (".mp4", ".mov", ".avi"): "Videos",
     (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".txt", ".rtf", ".odt", ".csv", ".log", ".json", ".xml", ".yml", ".yaml", ".md", ".html", ".htm", ".ahk", ".js", ".css", ".ts", ".java", ".py", ".c", ".cpp", ".h", ".sh"): "Documents",
     (".exe", ".msi", ".cmd", ".bat", ".apk", ".com" ): "EXE-files",
     (".jar",): "JAR-files",
-    (".zip", ".rar", ".gz", ".7z", ".iso"): "Archives"
+    (".zip", ".rar", ".gz", ".7z"): "Archives"
 }
 
 FolderNames = ["Music", "Videos", "EXE-files", "Documents", "Archives", "JAR-files"]
 
 class Main(ctk.CTk):
+
+
+
+
     def __init__(self):
         super().__init__()
         self.geometry("1000x1000")
         self.title("File Cleaner")
         self.maxsize(width=300, height=300)
         self.minsize(width=300, height=300)
+        ctk.set_appearance_mode("Dark")  # Modes: "System" (standard), "Dark", "Light"
+        ctk.set_default_color_theme("Themes\lavender.json")
         self.pathText = ctk.CTkEntry(self, width=300, height=20)
         self.pathText.insert("0", "Enter address here")
         self.pathText.place(x=0, y=50)
@@ -30,6 +36,38 @@ class Main(ctk.CTk):
         self.console.configure(self, state="disabled")
         button1 = ctk.CTkButton(self, text="Clean Directory", command=self.launcherCleaner)
         button1.place(x=85, y=210)
+        button2 = ctk.CTkButton(self, text="Switch Theme", command=self.next_theme)
+        button2.place(x=85, y=250)
+        # button1.configure(fg_color="Red")
+        self.themes = ["Themes\metal.json", "Themes\marsh.json", "Themes\lavender.json"]
+        self.theme_index = 0
+
+    def build_ui(self):
+        self.pathText = ctk.CTkEntry(self, width=300, height=20)
+        self.pathText.insert(0, "Enter address here")
+        self.pathText.place(x=0, y=50)
+
+        self.console = ctk.CTkTextbox(self, width=300, height=100)
+        self.console.place(x=0, y=100)
+        self.console.insert("0.0", "Output\n")
+        self.console.configure(state="disabled")
+
+        button1 = ctk.CTkButton(self, text="Clean Directory", command=self.launcherCleaner)
+        button1.place(x=85, y=210)
+
+        button2 = ctk.CTkButton(self, text="Switch Theme", command=self.next_theme)
+        button2.place(x=85, y=250)
+
+    def next_theme(self):
+
+        self.theme_index = (self.theme_index + 1) % len(self.themes)
+        new_theme = self.themes[self.theme_index]
+
+
+        ctk.set_default_color_theme(new_theme)
+        for widget in self.winfo_children():
+            widget.destroy()
+        self.build_ui()
 
     def launcherCleaner(self):
         path = self.pathText.get()
@@ -64,6 +102,7 @@ class Main(ctk.CTk):
                     self.console.insert("end", f"Moved {file_name} to {folder_name}\n")
                     self.console.configure(self, state="disabled")
                     break
+
 
 app = Main()
 app.mainloop()
