@@ -18,9 +18,6 @@ FolderNames = ["Music", "Videos", "Executables", "Documents", "Archives", "JARs"
 
 class Main(ctk.CTk):
 
-
-
-
     def __init__(self):
         super().__init__()
         self.geometry("1000x1000")
@@ -38,9 +35,8 @@ class Main(ctk.CTk):
         self.console.configure(self, state="disabled")
         button1 = ctk.CTkButton(self, text="Clean Directory", command=self.launcherCleaner)
         button1.place(x=85, y=210)
-        button2 = ctk.CTkButton(self, text="Switch Theme", command=self.next_theme)
-        button2.place(x=85, y=250)
-        # button1.configure(fg_color="Red")
+        themeButton = ctk.CTkButton(self, text="Switch Theme", command=self.next_theme) # delete this if you want to remove themes for a more portable experience. Delete the line below this
+        themeButton.place(x=85, y=250) # delete this if you're going to delete the line above this
         self.themes = ["Themes\metal.json", "Themes\marsh.json", "Themes\lavender.json"]
         self.theme_index = 0
 
@@ -104,7 +100,6 @@ class Main(ctk.CTk):
                     self.console.insert("end", f"Moved {file_name} to {folder_name}\n")
                     self.console.configure(self, state="disabled")
                     break
-
 
 app = Main()
 app.mainloop()
