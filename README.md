@@ -3,7 +3,7 @@ Cleans your designated folder by moving different types of file extensions to ea
 
 
   >[!IMPORTANT]
-  > run install requirements.bat before launching.
+  > run requirements.bat before launching.
 
 > [!NOTE]
 > ignores existing folders
